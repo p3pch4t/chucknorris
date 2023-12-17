@@ -57,4 +57,4 @@ LOCAL_SERVER_PORT=3895
 
 ## Hosted instance
 
-There is a hosted instance at `i2p://sxmfrgxczjtmk3a7icwj6vdp4lpk2w432k4s27lwj2lhdqmcq24q.b32.i2p`
+There is a hosted instance at `i2p://rtrnlpzzexbufkhpx3bjwxuim4lp22iz5oso2egy7hmwuz2yvugq.b32.i2p`
