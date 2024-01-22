@@ -1,0 +1,35 @@
+name: Go Release
+run-name: Building for Linux
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  linux-release:
+    runs-on: amd64_debian_bookworm_cross
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: make release
+        run: |
+          cd ${{ github.workspace }}
+          make release
+      - name: generate checksums and xz -e
+        run: |
+          cd ${{ github.workspace }}
+          cd build
+          for i in *;
+          do
+            sha256sum $i > $i.sha256
+            xz -e $i
+            sha256sum $i.xz > $i.xz.sha256
+          done
+      - name: Create release
+        uses: akkuman/gitea-release-action@v1
+        with:
+          body: |
+            ### Release info
+            ${{ github.event.head_commit.message }}
+          files: |-
+            ${{ gitea.workspace }}/build/*.xz

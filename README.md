@@ -6,7 +6,7 @@ This is a simple p3p bot that sends Chuck Norris jokes.
 
 You can download I2Pd from:
  - https://i2pd.readthedocs.io/en/latest/user-guide/install/
- - https://git.mrcyjanek.net/p3pch4t/flutter_i2p_bins-prebuild/
+ - https://git.mrcyjanek.net/p3pch4t/i2pd-build/releases
 
 ## Configuration
 

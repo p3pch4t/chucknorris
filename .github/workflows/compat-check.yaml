@@ -1,0 +1,16 @@
+name: Go Compat
+run-name: Building for Linux
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+jobs:
+  linux-release:
+    runs-on: amd64_debian_bookworm_cross
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: make release
+        run: |
+          cd ${{ github.workspace }}
+          make release
