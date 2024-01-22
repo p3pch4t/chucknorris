@@ -43,6 +43,8 @@ func main() {
 	if !botPi.IsAccountReady() {
 		botPi.Create("Chuck Norris", "chuchnorris-jokes@mrcyjanek.net", 4096)
 	}
+	log.Println("Running .EventQueueRunner() in a goroutine")
+	go botPi.EventQueueRunner()
 	c := make(chan os.Signal, 1)
 	signal.Notify(c, os.Interrupt)
 	log.Println("p3p is running...", botPi.Endpoint)
